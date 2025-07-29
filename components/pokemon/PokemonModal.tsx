@@ -7,7 +7,6 @@ import {
   } from "@/components/ui/dialog"
 import usePokemonDetails from "@/lib/usePokemonDetails"
 import PokemonCardSkeleton from "./PokemonCardSkeleton"
-import Image from "next/image"
 import PokemonImage from "./PokemonImage"
 
 interface Props {
