@@ -2,9 +2,9 @@
 
 import usePokemonList from "@/lib/usePokemonList"
 import { useMemo, useState } from "react"
-import PokemonCardSkeleton from "@/components/PokemonCardSkeleton"
-import PokemonCard from "@/components/PokemonCard"
-import PokemonModal from "@/components/PokemonModal"
+import PokemonCardSkeleton from "@/components/pokemon/PokemonCardSkeleton"
+import PokemonCard from "@/components/pokemon/PokemonCard"
+import PokemonModal from "@/components/pokemon/PokemonModal"
 import OrderByStrengthSelect from "@/components/filters/OrderByStrenghSelect"
 
 export default function Page() {
