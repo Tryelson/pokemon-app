@@ -6,6 +6,7 @@ import PokemonCardSkeleton from "@/components/pokemon/PokemonCardSkeleton"
 import PokemonCard from "@/components/pokemon/PokemonCard"
 import PokemonModal from "@/components/pokemon/PokemonModal"
 import OrderByStrengthSelect from "@/components/filters/OrderByStrenghSelect"
+import { BsGithub } from "react-icons/bs"
 
 export default function Page() {
   const { pokemons, loading, error } = usePokemonList()
@@ -21,7 +22,21 @@ export default function Page() {
 
   return (
     <main className="p-6 max-w-5xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Pokémons</h1>
+      <div className="flex justify-between gap-2">
+        <h1 className="text-2xl font-bold mb-4">Pokémons</h1>
+
+        <div className="flex justify-between items-center mb-4 gap-2">
+          <a
+            href="https://github.com/Tryelson/pokemon-app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-lg text-muted-foreground hover:underline"
+          >
+            <BsGithub size={22} />
+            Tryelson Marques
+          </a>
+        </div>
+      </div>
 
       <div className="mb-4">
         <OrderByStrengthSelect value={order} onChange={setOrder} />

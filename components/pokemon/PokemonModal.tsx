@@ -7,6 +7,7 @@ import {
   } from "@/components/ui/dialog"
 import usePokemonDetails from "@/lib/usePokemonDetails"
 import PokemonCardSkeleton from "./PokemonCardSkeleton"
+import Image from "next/image"
 
 interface Props {
   name: string | null
@@ -31,11 +32,27 @@ export default function PokemonModal({ name, onClose }: Props) {
         )}
     
         {!loading && data && (
-          <div className="text-sm space-y-2">
-            <img
-              src={data.sprites.front_default}
-              className="w-24 h-24 mx-auto"
-            />
+          <div className="text-sm space-y-2 relative">
+            {!data.sprites.front_default ? (
+              <Image
+                src={"/pokebola.png"}
+                alt={"Pokebola"}
+                className="h-20 w-20 mx-auto"
+                width={80}
+                height={80}
+                priority
+              />
+            ) : (
+              <Image
+                src={data.sprites.front_default}
+                className="w-24 h-24 mx-auto"
+                width={80}
+                height={80}
+                priority
+                alt={name || "Pokémon"}
+              />
+            )}
+
             <p>
               <strong>Tipos:</strong>{" "}
               {data.types.map((t) => t.type.name).join(", ")}
