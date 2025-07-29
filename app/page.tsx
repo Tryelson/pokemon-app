@@ -30,13 +30,13 @@ export default function Page() {
       {error && <p className="text-red-500">{error}</p>}
 
       {loading ? (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {Array.from({ length: 8 }).map((_, i) => (
             <PokemonCardSkeleton key={i} />
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {orderedPokemons.map((poke) => (
             <PokemonCard
               key={poke.name}
