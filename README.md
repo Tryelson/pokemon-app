@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧪 Projeto - Listagem de Pokémons
 
-## Getting Started
+Este projeto foi desenvolvido como parte de um processo seletivo técnico com o objetivo de demonstrar habilidades em desenvolvimento frontend moderno, utilizando **Next.js**, **Tailwind CSS** e a **PokéAPI**.
 
-First, run the development server:
+## 🎯 Objetivo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Criar uma interface interativa e responsiva para listagem de Pokémons, com visualização de detalhes e ordenação por força.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Tecnologias Utilizadas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ✅ [Next.js 14](https://nextjs.org/)
+- ✅ [Tailwind CSS](https://tailwindcss.com/)
+- ✅ [Shadcn UI](https://ui.shadcn.com/)
+- ✅ [Radix UI](https://www.radix-ui.com/)
+- ✅ [TypeScript](https://www.typescriptlang.org/)
+- ✅ [PokéAPI](https://pokeapi.co/)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📸 Funcionalidades
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- ✅ Listagem de Pokémons com imagem, nome e força
+- ✅ Ordenação por força (ascendente e descendente)
+- ✅ Modal com detalhes do Pokémon (nome, tipo, habilidades, imagem, força)
+- ✅ Design responsivo e acessível
+- ✅ Código modular com boas práticas de componentização
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠️ Como rodar localmente
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- npm install
+- npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Estrutura do projeto
+
+├── app/
+│   ├── page.tsx          # Página principal
+│   └── layout.tsx        # Layout base
+├── components/
+│   ├── PokemonCard.tsx   # Card de listagem
+│   ├── PokemonModal.tsx  # Modal com detalhes
+│   └── ui/               # Componentes do Shadcn
+├── lib/
+│   ├── usePokemonList.ts # Hook de dados
+│   └── utils.ts          # Função `cn`
+├── public/
+├── styles/
+├── README.md
+└── package.json
