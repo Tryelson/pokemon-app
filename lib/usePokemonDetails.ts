@@ -33,8 +33,12 @@ export default function usePokemonDetails(name: string | null) {
       const json = await res.json()
       cache.set(name, json)
       setData(json)
-    } catch (err: any) {
-      setError(err.message || "Erro inesperado")
+    } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Erro inesperado");
+        }
     } finally {
       setLoading(false)
     }
@@ -44,6 +48,7 @@ export default function usePokemonDetails(name: string | null) {
     if (!name) return
 
     fetchDetail()
+    // react-hooks/exhaustive-deps
   }, [name])
 
   return { data, loading, error }

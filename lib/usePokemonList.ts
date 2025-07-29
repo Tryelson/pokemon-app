@@ -22,12 +22,12 @@ export default function usePokemonList(limit = 20) {
       const json = await res.json()
 
       const results = await Promise.all(
-        json.results.map(async (poke: any) => {
+        json.results.map(async (poke: { name: string; url: string }) => {
           const resDetail = await fetch(poke.url)
           if (!resDetail.ok) throw new Error(`Erro em ${poke.name}`)
           const detail = await resDetail.json()
 
-          const attackStat = detail.stats.find((item: any) => item.stat.name === "attack")?.base_stat ?? 0
+          const attackStat = detail.stats.find((item: { stat: { name: string }}) => item.stat.name === "attack")?.base_stat ?? 0
 
           return {
             name: detail.name,
@@ -38,8 +38,12 @@ export default function usePokemonList(limit = 20) {
       )
 
       setPokemons(results)
-    } catch (err: any) {
-      setError(err.message || "Erro inesperado")
+    } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Erro inesperado");
+        }
     } finally {
       setLoading(false)
     }
@@ -47,6 +51,7 @@ export default function usePokemonList(limit = 20) {
 
   useEffect(() => {
     fetchList()
+    // react-hooks/exhaustive-deps
   }, [limit])
 
   return { pokemons, loading, error }
