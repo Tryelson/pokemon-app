@@ -1,4 +1,4 @@
-import Image from "next/image"
+import PokemonImage from "./PokemonImage"
 
 interface Props {
   name: string
@@ -13,25 +13,12 @@ export default function PokemonCard({ name, image, strength, onClick }: Props) {
       onClick={onClick}
       className="cursor-pointer rounded-lg bg-muted p-4 hover:shadow-lg hover:scale-[1.02] transition relative"
     >
-      {!image ? (
-        <Image
-          src={"/pokebola.png"}
-          alt={"Pokebola"}
-          className="h-20 w-20 mx-auto"
-          width={80}
-          height={80}
-          priority
-        />
-      ) : (
-        <Image
-          src={image}
-          alt={name}
-          width={80}
-          height={80}
-          priority
-          className="w-20 h-20 object-cover mx-auto"
-        />
-      )}
+      <PokemonImage
+        src={image}
+        alt={name || "Pokebola"}
+        width={80}
+        height={80}
+      />
       <p className="text-center capitalize font-medium mt-2">{name}</p>
       <p className="text-center text-sm text-muted-foreground">Ataque: {strength}</p>
     </div>
